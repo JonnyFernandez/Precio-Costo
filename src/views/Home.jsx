@@ -78,11 +78,11 @@ const Home = () => {
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Margen Ganancia:</label>
-                                <span>{margin.toFixed(2) || 0}%</span>
+                                <span>{margin ? margin.toFixed(2) : 0}%</span>
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Off Aplicado:</label>
-                                <span>{data.off}%</span>
+                                <span>{data.off ? data.off : 0}%</span>
                             </div>
                         </div>
                     </div>

@@ -13,6 +13,7 @@ const Home = () => {
 
     const reset = () => {
         setData({ cost: '', iva: '', iibb: '', others: '', gain: '', off: '' })
+        setIsFlipper(false)
     }
 
     let price = data.cost * (1 + (data.iva / 100) + (data.iibb / 100) + (data.others / 100) + (data.gain / 100))
@@ -25,7 +26,7 @@ const Home = () => {
     return (
         <div className={d.home}>
             <div className={d.bodyAdmin}>
-
+             <Nav/>
 
                 <div className={`${d.card}`}>
                     <div className={`${d.front} ${isFlipped ? d.flip : ''}`}>

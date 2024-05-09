@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const Home = () => {
     const [isFlipped, setIsFlipper] = useState(false)
-    const [data, setData] = useState({ cost: 0, iva: 0, iibb: 0, others: 0, gain: 0, off: 0 });
+    const [data, setData] = useState({ cost: '', iva: '', iibb: '', others: '', gain: '', off: '' });
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -12,7 +12,7 @@ const Home = () => {
     };
 
     const reset = () => {
-        setData({ cost: 0, iva: 0, iibb: 0, others: 0, gain: 0, off: 0 })
+        setData({ cost: '', iva: '', iibb: '', others: '', gain: '', off: '' })
     }
 
     let price = data.cost * (1 + (data.iva / 100) + (data.iibb / 100) + (data.others / 100) + (data.gain / 100))
@@ -33,27 +33,27 @@ const Home = () => {
                             <h2>Costos y Porcentajes</h2>
                             <div className={d.inputs}>
                                 <label htmlFor="">Costo: $</label>
-                                <input type="number" name='cost' value={data.cost} onChange={handleChange} />
+                                <input type="text" name='cost' value={data.cost} onChange={handleChange} placeholder='ingresar Costo' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">IVA: %</label>
-                                <input type="number" name='iva' value={data.iva} onChange={handleChange} placeholder='ingresar iva' />
+                                <input type="text" name='iva' value={data.iva} onChange={handleChange} placeholder='ingresar iva' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">IIBB: %</label>
-                                <input type="number" name='iibb' value={data.iibb} onChange={handleChange} placeholder='ingresar iibb' />
+                                <input type="text" name='iibb' value={data.iibb} onChange={handleChange} placeholder='ingresar iibb' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Otros: %</label>
-                                <input type="number" name='others' value={data.others} onChange={handleChange} placeholder='ingresar Otros' />
+                                <input type="text" name='others' value={data.others} onChange={handleChange} placeholder='ingresar Otros' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Ganancia: %</label>
-                                <input type="number" name='gain' value={data.gain} onChange={handleChange} placeholder='ingresar Ganancia' />
+                                <input type="text" name='gain' value={data.gain} onChange={handleChange} placeholder='ingresar Ganancia' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Descuento: %</label>
-                                <input type="number" name='off' value={data.off} onChange={handleChange} placeholder='ingresar descuento' />
+                                <input type="text" name='off' value={data.off} onChange={handleChange} placeholder='ingresar descuento' />
                             </div>
 
                         </div>
@@ -78,7 +78,7 @@ const Home = () => {
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Margen Ganancia:</label>
-                                <span>{margin || 0}%</span>
+                                <span>{margin.toFixed(2) || 0}%</span>
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Off Aplicado:</label>

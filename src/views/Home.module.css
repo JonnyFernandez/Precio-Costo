@@ -123,6 +123,8 @@
     justify-content: space-around;
      border-bottom: 1px solid rgb(88, 87, 87);
     width: 80%;
+
+    
 }
 .inputs label{
     display: flex;
@@ -137,7 +139,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
-    /* background-color: rgb(241, 239, 239); */
+    width: 30%;
+    /* background-color: rgb(17, 16, 16); */
     /* color: yellow; */
 }
 
@@ -148,3 +151,7 @@
     outline: none;
     width: 50%;
 }
+
+
+    
+ 

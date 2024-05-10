@@ -26,8 +26,8 @@ const Home = () => {
     return (
         <div className={d.home}>
             <div className={d.bodyAdmin}>
-             <Nav/>
 
+                <Nav />
                 <div className={`${d.card}`}>
                     <div className={`${d.front} ${isFlipped ? d.flip : ''}`}>
                         <div className={d.insideFront}>

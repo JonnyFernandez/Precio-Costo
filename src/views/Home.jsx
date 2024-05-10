@@ -25,36 +25,36 @@ const Home = () => {
 
     return (
         <div className={d.home}>
-            <div className={d.bodyAdmin}>
+            <Nav />
+            <div className={d.body}>
 
-                <Nav />
                 <div className={`${d.card}`}>
                     <div className={`${d.front} ${isFlipped ? d.flip : ''}`}>
                         <div className={d.insideFront}>
                             <h2>Costos y Porcentajes</h2>
                             <div className={d.inputs}>
                                 <label htmlFor="">Costo: $</label>
-                                <input type="text" name='cost' value={data.cost} onChange={handleChange} placeholder='ingresar Costo' />
+                                <input type="text" name='cost' value={data.cost} onChange={handleChange} placeholder='Costo' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">IVA: %</label>
-                                <input type="text" name='iva' value={data.iva} onChange={handleChange} placeholder='ingresar iva' />
+                                <input type="text" name='iva' value={data.iva} onChange={handleChange} placeholder='IVA' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">IIBB: %</label>
-                                <input type="text" name='iibb' value={data.iibb} onChange={handleChange} placeholder='ingresar iibb' />
+                                <input type="text" name='iibb' value={data.iibb} onChange={handleChange} placeholder='IIBB' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Otros: %</label>
-                                <input type="text" name='others' value={data.others} onChange={handleChange} placeholder='ingresar Otros' />
+                                <input type="text" name='others' value={data.others} onChange={handleChange} placeholder='Otros' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Ganancia: %</label>
-                                <input type="text" name='gain' value={data.gain} onChange={handleChange} placeholder='ingresar Ganancia' />
+                                <input type="text" name='gain' value={data.gain} onChange={handleChange} placeholder='Ganancia' />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Descuento: %</label>
-                                <input type="text" name='off' value={data.off} onChange={handleChange} placeholder='ingresar descuento' />
+                                <input type="text" name='off' value={data.off} onChange={handleChange} placeholder='Descuento' />
                             </div>
 
                         </div>

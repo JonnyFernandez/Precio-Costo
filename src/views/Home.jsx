@@ -90,7 +90,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={d.change} onClick={() => setIsFlipper(prev => !prev)}> Enviar </div>
+                    <div className={d.change} onClick={() => setIsFlipper(prev => !prev)}> {isFlipped ? 'Volver' : 'Ver'} </div>
                     {data.cost || data.iva || data.iibb || data.others || data.gain || data.off ? <button className={d.change2} onClick={reset}> Reset </button> : ''}
                 </div>
             </div>

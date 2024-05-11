@@ -25,7 +25,10 @@ const Home = () => {
 
     return (
         <div className={d.home}>
-            <Nav />
+            <div className={d.header}>
+                <Nav />
+            </div>
+
             <div className={d.body}>
 
                 <div className={`${d.card}`}>
@@ -88,7 +91,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className={d.change} onClick={() => setIsFlipper(prev => !prev)}> Enviar </div>
-                    {data.cost || data.iva || data.iibb || data.others || data.gain || data.off ? <div className={d.change2} onClick={reset}> Reset </div> : ''}
+                    {data.cost || data.iva || data.iibb || data.others || data.gain || data.off ? <button className={d.change2} onClick={reset}> Reset </button> : ''}
                 </div>
 
 

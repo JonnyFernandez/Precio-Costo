@@ -74,7 +74,7 @@
 .change{
     position: absolute;
     padding: 0.6em 1.2em;
-    color: white;
+    color: rgb(249, 246, 246);
     bottom: 0;
     right: 0;
     border-radius: 8px;
@@ -82,9 +82,10 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #ff5900;
     cursor: pointer;
     transition: border-color 0.25s;
+    font-weight: bold;
 }
 
 .change:hover{

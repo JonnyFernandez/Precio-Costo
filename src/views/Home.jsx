@@ -39,27 +39,27 @@ const Home = () => {
                             <h2>Costos y Porcentajes</h2>
                             <div className={d.inputs}>
                                 <label htmlFor="">Costo: $</label>
-                                <input type="text" name='cost' value={data.cost} onChange={handleChange} placeholder='Costo' />
+                                <input type="text" name='cost' value={data.cost} onChange={handleChange} placeholder='Costo' pattern="[0-9]*" inputMode="numeric" />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">IVA: %</label>
-                                <input type="text" name='iva' value={data.iva} onChange={handleChange} placeholder='IVA' />
+                                <input type="text" name='iva' value={data.iva} onChange={handleChange} placeholder='IVA' pattern="[0-9]*" inputMode="numeric" />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">IIBB: %</label>
-                                <input type="text" name='iibb' value={data.iibb} onChange={handleChange} placeholder='IIBB' />
+                                <input type="text" name='iibb' value={data.iibb} onChange={handleChange} placeholder='IIBB' pattern="[0-9]*" inputMode="numeric" />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Otros: %</label>
-                                <input type="text" name='others' value={data.others} onChange={handleChange} placeholder='Otros' />
+                                <input type="text" name='others' value={data.others} onChange={handleChange} placeholder='Otros' pattern="[0-9]*" inputMode="numeric" />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Ganancia: %</label>
-                                <input type="text" name='gain' value={data.gain} onChange={handleChange} placeholder='Ganancia' />
+                                <input type="text" name='gain' value={data.gain} onChange={handleChange} placeholder='Ganancia' pattern="[0-9]*" inputMode="numeric" />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Descuento: %</label>
-                                <input type="text" name='off' value={data.off} onChange={handleChange} placeholder='Descuento' />
+                                <input type="text" name='off' value={data.off} onChange={handleChange} placeholder='Descuento' pattern="[0-9]*" inputMode="numeric" />
                             </div>
 
                         </div>

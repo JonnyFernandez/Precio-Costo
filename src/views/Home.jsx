@@ -47,7 +47,7 @@ const Home = () => {
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">IIBB: %</label>
-                                <input type="text" name='iibb' value={data.iibb} onChange={handleChange} placeholder='IIBB' pattern="[0-9]*" inputMode="numeric" />
+                                <input type="text" name='iibb' value={data.iibb} onChange={handleChange} placeholder='IIBB' pattern="[0-9]*" inputMode="decimal" />
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Otros: %</label>

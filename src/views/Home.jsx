@@ -8,7 +8,10 @@ const Home = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setData({ ...data, [name]: Number(value) })
+        // Reemplaza cualquier coma por punto para manejar números decimales
+        const processedValue = value.replace(',', '.');
+        // Utiliza parseFloat para convertir el valor a un número flotante
+        setData({ ...data, [name]: parseFloat(processedValue) || '' });
     };
 
     const reset = () => {

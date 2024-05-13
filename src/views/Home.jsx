@@ -5,7 +5,7 @@ import { useState } from 'react'
 const Home = () => {
     const [isFlipped, setIsFlipper] = useState(false)
     const [data, setData] = useState({ cost: '', iva: '', iibb: '', others: '', gain: '', off: '' });
-    console.log(data);
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         // Reemplaza cualquier coma por punto para manejar números decimales

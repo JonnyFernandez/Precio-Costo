@@ -20,12 +20,21 @@ const Home = () => {
     }
 
     // precio de venta segun margen de ganancias
-    let cost = data.cost * (1 + (data.iva + data.iibb) / 100);
-    let ganancia = 1 - ((data.gain + data.others) / 100);
-    let price2 = cost / ganancia
-    let priceOff2 = price2 - (price2 * (data.off / 100));
-    let discount2 = price2 - priceOff2
-    let margin = ((priceOff2 - cost) / cost) * 100
+    // let cost = data.cost * (1 + (data.iva + data.iibb) / 100);
+    // let ganancia = 1 - ((data.gain + data.others) / 100);
+    // let price2 = cost / ganancia
+    // let priceOff2 = price2 - (price2 * (data.off / 100));
+    // let discount2 = price2 - priceOff2
+    // let margin = ((priceOff2 - cost) / cost) * 100
+
+    // mejoras de logica
+    let cost = data.cost * (1 + (data.iva + data.iibb) / 100)
+    let price = cost * (1 + (data.gain + data.others) / 100)
+    let priceOff = price - (price * (data.off / 100));
+    let discount = price - priceOff
+    let margin = ((priceOff - cost) / cost) * 100
+
+
 
 
     return (
@@ -74,21 +83,21 @@ const Home = () => {
 
                             <div className={d.inputs}>
                                 <label htmlFor="">Precio:</label>
-                                <span>$ {price2.toFixed(2)}</span>
+                                <span>$ {price.toFixed(2)}</span>
                             </div>
 
                             <div className={d.inputs}>
                                 <label htmlFor="">Precio Off:</label>
-                                <span>$ {priceOff2.toFixed(2)}</span>
+                                <span>$ {priceOff.toFixed(2)}</span>
                             </div>
                             <div className={d.inputs}>
                                 <label htmlFor="">Descuento:</label>
-                                <span>$ {discount2.toFixed(2)}</span>
+                                <span>$ {discount.toFixed(2)}</span>
                             </div>
-                            <div className={d.inputs}>
+                            {/* <div className={d.inputs}>
                                 <label htmlFor="">Margen Ganancia:</label>
                                 <span>{margin ? margin.toFixed(2) : 0}%</span>
-                            </div>
+                            </div> */}
                             <div className={d.inputs}>
                                 <label htmlFor="">Off Aplicado:</label>
                                 <span>{data.off ? data.off : 0}%</span>

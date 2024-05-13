@@ -5,7 +5,7 @@ import { useState } from 'react'
 const Home = () => {
     const [isFlipped, setIsFlipper] = useState(false)
     const [data, setData] = useState({ cost: '', iva: '', iibb: '', others: '', gain: '', off: '' });
-
+    console.log(data);
     const handleChange = (event) => {
         const { name, value } = event.target;
         // Reemplaza cualquier coma por punto para manejar números decimales
@@ -28,14 +28,11 @@ const Home = () => {
     // let margin = ((priceOff2 - cost) / cost) * 100
 
     // mejoras de logica
-    let cost = data.cost * (1 + (data.iva + data.iibb) / 100)
-    let price = cost * (1 + (data.gain + data.others) / 100)
-    let priceOff = price - (price * (data.off / 100));
+    let cost = data.cost * (1 + ((data.iva / 100) + (data.iibb / 100)))
+    let price = cost + (data.cost * ((data.others + data.gain) / 100))
+    let priceOff = price * (1 - (data.off / 100));
     let discount = price - priceOff
     let margin = ((priceOff - cost) / cost) * 100
-
-
-
 
     return (
         <div className={d.home}>

@@ -1,8 +1,8 @@
-import d from './Home.module.css'
-import Nav from '../components/Nav'
+import d from './GainCalculator.module.css'
+
 import { useState } from 'react'
 
-const Home = () => {
+const GainCalculator = () => {
     const [isFlipped, setIsFlipper] = useState(false)
     const [data, setData] = useState({ cost: '', iva: '', iibb: '', others: '', gain: '', off: '' });
 
@@ -37,7 +37,7 @@ const Home = () => {
     return (
         <div className={d.home}>
             <div className={d.header}>
-                <Nav />
+
             </div>
 
             <div className={d.body}>
@@ -108,7 +108,7 @@ const Home = () => {
         </div>
     )
 }
-export default Home
+export default GainCalculator
 
 
 

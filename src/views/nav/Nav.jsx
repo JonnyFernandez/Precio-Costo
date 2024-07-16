@@ -1,36 +1,46 @@
-import n from './Nav.module.css'
-import { useNavigate } from 'react-router-dom'
+import d from './Nav.module.css'
+// import { useNavigate } from 'react-router-dom'
 
 
 const Nav = () => {
-    const navigate = useNavigate()
 
-    const handleSelect = (e) => {
-        const value = e.target.value;
-        if (value === "Calc") navigate('/price-cal')
-        if (value === "ButgetA") navigate('/butget')
-        if (value === "ButgetB") alert('No disponible Facturas B')
-        if (value === "Opciones") navigate('/')
 
-    }
 
     return (
-        <div className={n.heade}>
-            <div className={n.logo} onClick={() => navigate('/')}>Tool's Box</div>
-            <div className={n.nav}>
-                <select onChange={handleSelect}>
-                    <option value="Opciones">Opciones</option>
-                    <option value="Calc">Precios por Porcentaje</option>
-                    <option value="Calc">Precios por Margen</option>
-                    <option value="ButgetA">Presupuesto A</option>
-                    <option value="ButgetB">Presupuesto B</option>
-                    <option value="ButgetB">Información</option>
-                    <option value="ButgetB">Algoritmos de calculo</option>
-                    <option value="ButgetB">Developer</option>
-                </select>
+        <div className={d.body}>
+            <nav>
 
-                {/* <h5>perfil</h5> */}
-            </div>
+                <div className={d.logo}>
+                    <img src='../../../IconOrange.ico' />
+                </div>
+                <h3 className={d.title}>Tool´s Boox</h3>
+
+                <ul className={d.links}>
+                    <li>
+                        <a>Upload</a>
+                    </li>
+                    {/* <li>
+                        <a>Licence</a>
+                    </li> */}
+                    <li>
+                        <div className={d.dropdown}>
+                            <a>
+                                <p>Explore</p>
+                                <span className="material-icons"> expand_more </span>
+                            </a>
+                            <div className={d.menu}>
+                                <a href='/price-cal'>Precios por Porcentaje</a>
+                                <a href='/price-margin' >Precios por Margen</a>
+                                <a href='ButgetA'>Presupuesto A</a>
+                                <a href='ButgetB'>Presupuesto B</a>
+                                {/* <a>Free Videos</a>
+                                <a>Pexels Blog</a> */}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button">Donate</button>
+            </nav>
         </div>
     )
 }

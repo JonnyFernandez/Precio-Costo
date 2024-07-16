@@ -7,9 +7,11 @@ function App() {
     <>
       <Nav />
       <Routes>
-        <Route path="/" element={<PriceCalculator />} />
+        <Route path="/" element={<h1>Inicio</h1>} />
         <Route path="/price-cal" element={<PriceCalculator />} />
-        <Route path="/butget" element={<Butget />} />
+        <Route path="/price-margin" element={<h1>Precio por margen</h1>} />
+        <Route path="/butgetA" element={<h1>Presupuesto A</h1>} />
+        <Route path="/butgetB" element={<h1>Presupuesto B</h1>} />
       </Routes>
     </>
   )

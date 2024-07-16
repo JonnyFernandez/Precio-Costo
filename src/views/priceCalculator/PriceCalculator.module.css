@@ -37,7 +37,7 @@
 
 
 
-.front, .back {
+.front, .back { 
     overflow: hidden;
     height: 80%;
     width: 80%;
@@ -54,6 +54,8 @@
     box-shadow: 4px 12px 40px 6px rgba(155, 152, 152, 0.09);
     /* box-shadow: 0px 0px 10px rgb(232, 195, 195); */
     background-color: var(--PrimaryColor1);
+   
+
 }
 
 .flip {
@@ -162,6 +164,8 @@
     }
     .front, .back {
        border-radius: 15px;
+       /* background-color: red; */
+       height: 60%;
     }
     .change2{
         bottom: 0;

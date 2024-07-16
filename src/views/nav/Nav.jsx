@@ -16,7 +16,7 @@ const Nav = () => {
 
     return (
         <div className={n.heade}>
-            <div className={n.logo} onClick={() => navigate('/')}>BOX TOOLS</div>
+            <div className={n.logo} onClick={() => navigate('/')}>Tool's Box</div>
             <div className={n.nav}>
                 <select onChange={handleSelect}>
                     <option value="Opciones">Opciones</option>

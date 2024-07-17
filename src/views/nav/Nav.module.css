@@ -71,7 +71,7 @@
   body {
     font-family: "Euclid Circular A", "Poppins";
     color: var(--PrimaryColor1);
-    /* background: var(--color-background); */
+    /* background-image: url('../../../public/IconOrange.ico'); */
   }
   
   nav {

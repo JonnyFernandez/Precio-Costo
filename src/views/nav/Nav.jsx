@@ -1,9 +1,8 @@
 import d from './Nav.module.css'
-// import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 const Nav = () => {
-
 
 
     return (
@@ -11,7 +10,7 @@ const Nav = () => {
             <nav>
 
                 <div className={d.logo}>
-                    <img src='../../../IconOrange.ico' />
+                    <img src='../../../public/IconOrange.ico' />
                 </div>
                 <h3 className={d.title}>Tool´s Boox</h3>
 
@@ -29,10 +28,10 @@ const Nav = () => {
                                 <span className="material-icons"> expand_more </span>
                             </a>
                             <div className={d.menu}>
-                                <a href='/price-cal'>Precios por Porcentaje</a>
-                                <a href='/price-margin' >Precios por Margen</a>
-                                <a href='ButgetA'>Presupuesto A</a>
-                                <a href='ButgetB'>Presupuesto B</a>
+                                <NavLink to={'/price-cal'}>Precios por Porcentaje</NavLink>
+                                <NavLink to={'/price-margin'}>Precios por Margen</NavLink>
+                                <NavLink to={'/butgetA'}> Presupuesto A</NavLink>
+                                <NavLink to={'/butgetB'}> Presupuesto B</NavLink>
                                 {/* <a>Free Videos</a>
                                 <a>Pexels Blog</a> */}
                             </div>

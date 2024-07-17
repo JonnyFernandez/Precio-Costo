@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const PriceCalculator = () => {
     const [isFlipped, setIsFlipped] = useState(false);
-    const [data, setData] = useState({ cost: '', iva: '', iibb: '', others: '', gain: '', off: '' });
+    const [data, setData] = useState({ costo: '', iva: '', iibb: '', otros: '', ganancia: '', off: '' });
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -12,15 +12,15 @@ const PriceCalculator = () => {
     };
 
     const reset = () => {
-        setData({ cost: '', iva: '', iibb: '', others: '', gain: '', off: '' });
+        setData({ costo: '', iva: '', iibb: '', otros: '', ganancia: '', off: '' });
         setIsFlipped(false);
     };
 
-    const cost = data.cost * (1 + ((data.iva / 100) + (data.iibb / 100)));
-    const price = cost + (data.cost * ((data.others + data.gain) / 100));
+    const costo = data.costo * (1 + ((data.iva / 100) + (data.iibb / 100)));
+    const price = costo + (data.costo * ((data.otros + data.ganancia) / 100));
     const priceOff = price * (1 - (data.off / 100));
     const discount = price - priceOff;
-    const margin = ((priceOff - cost) / cost) * 100;
+    const margin = ((priceOff - costo) / costo) * 100;
 
     return (
         <div className={d.home}>
@@ -29,10 +29,10 @@ const PriceCalculator = () => {
                 <div className={d.card}>
                     <div className={`${d.front} ${isFlipped ? d.flip : ''}`}>
                         <div className={d.insideFront}>
-                            <h2>Costs & Percentages</h2>
-                            {['cost', 'iva', 'iibb', 'others', 'gain', 'off'].map((field, index) => (
+                            <h2>Costos & Percentages</h2>
+                            {['costo', 'iva', 'iibb', 'otros', 'ganancia', 'off'].map((field, index) => (
                                 <div key={index} className={d.inputs}>
-                                    <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}: {field === 'cost' ? '$' : '%'}</label>
+                                    <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}: {field === 'costo' ? '$' : '%'}</label>
                                     <input
                                         type="text"
                                         id={field}

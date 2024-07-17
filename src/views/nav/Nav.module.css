@@ -71,7 +71,7 @@
   body {
     font-family: "Euclid Circular A", "Poppins";
     color: var(--PrimaryColor1);
-    /* background-image: url('../../../public/IconOrange.ico'); */
+    
   }
   
   nav {
@@ -95,12 +95,12 @@
     width: 80px;
     height: 80px;
     margin-left: 50px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
-   .logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* or 'cover' depending on the desired behavior */
-}
+
         
     
     nav > h1 {
@@ -211,7 +211,7 @@
 
     @media(max-width:600px){
       .logo{
-         width:40px;
+         width:60px;
          margin-left: 10px;
         }
       .title{

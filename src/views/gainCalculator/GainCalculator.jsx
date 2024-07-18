@@ -57,6 +57,7 @@ const GainCalculator = () => {
                                 { label: 'Descuento', value: discount.toFixed(2) },
                                 { label: 'Margen de Ganancia', value: margin.toFixed(2) + '%' },
                                 { label: 'Off aplicado', value: `${data.off || 0}%` },
+                                { label: 'Ganancia neta', value: `${(priceOff-costoTotal).toFixed(2)}` },
                             ].map((item, index) => (
                                 <div key={index} className={d.inputs}>
                                     <label htmlFor={item.label}>{item.label}:</label>

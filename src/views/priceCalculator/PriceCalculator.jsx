@@ -56,6 +56,7 @@ const PriceCalculator = () => {
                                 { label: 'Price Off', value: priceOff.toFixed(2) },
                                 { label: 'Discount', value: discount.toFixed(2) },
                                 { label: 'Off applied', value: `${data.off || 0}%` },
+                                { label: 'Ganancia neta', value: `${(priceOff-costo).toFixed(2)}` },
                             ].map((item, index) => (
                                 <div key={index} className={d.inputs}>
                                     <label htmlFor={item.label}>{item.label}:</label>

@@ -17,11 +17,12 @@ const GainCalculator = () => {
     };
 
     const costoTotal = data.costo * (1 + (data.iva / 100) + (data.iibb / 100));
-    const ganancia = 1 - ((data.ganancia + data.otros) / 100);
-    const price = costoTotal / ganancia;
+    const factorRentabilidad = 1 - ((data.ganancia + data.otros) / 100);
+    const price = costoTotal / factorRentabilidad;
     const priceOff = price * (1 - (data.off / 100));
     const discount = price - priceOff;
     const margin = ((priceOff - costoTotal) / costoTotal) * 100 || 0;
+
 
     return (
         <div className={d.home}>

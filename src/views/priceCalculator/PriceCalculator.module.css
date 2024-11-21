@@ -36,6 +36,7 @@
     position: relative;
     perspective: 1000px;
     margin-top: 20px;
+    /* background-color: red; */
 }
 
 
@@ -167,15 +168,24 @@
         height: 90%;
         width: 90%;
         /* background-color: rebeccapurple; */
+        
     }
     .front, .back {
        border-radius: 15px;
        /* background-color: red; */
        height: 60%;
+       margin-top: -100px;
+      
+       
     }
     .change2{
         bottom: 0;
         left: 0;
+        margin-bottom: 70px;
+    }
+    .change{
+        margin-bottom: 70px;
+
     }  
     label{
         /* background-color: red; */

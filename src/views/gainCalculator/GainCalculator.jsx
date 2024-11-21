@@ -35,7 +35,8 @@ const GainCalculator = () => {
                     <div className={`${d.front} ${isFlipped ? d.flip : ''}`}>
                         <div className={d.insideFront}>
                             <h2>Costos & Margen</h2>
-                            {['costo', 'iva', 'iibb', 'otros', 'ganancia', 'off'].map((field, index) => (
+                            <p>proximamante apartado de presupuestos...</p>
+                            {/* {['costo', 'iva', 'iibb', 'otros', 'ganancia', 'off'].map((field, index) => (
                                 <div key={index} className={d.inputs}>
                                     <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}: {field === 'costo' ? '$' : '%'}</label>
                                     <input
@@ -49,14 +50,15 @@ const GainCalculator = () => {
                                         inputMode="numeric"
                                     />
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                     </div>
 
                     <div className={`${d.back} ${!isFlipped ? d.flip : ''}`}>
                         <div className={d.insideFront}>
                             <h2>Resultados</h2>
-                            {[
+                            <p>proximamante apartado de presupuestos...</p>
+                            {/* {[
                                 { label: 'Precio', value: price.toFixed(2) },
                                 { label: 'Precio Off', value: priceOff.toFixed(2) },
                                 { label: 'Descuento', value: discount.toFixed(2) },
@@ -68,7 +70,7 @@ const GainCalculator = () => {
                                     <label htmlFor={item.label}>{item.label}:</label>
                                     <span>{item.value}</span>
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                     </div>
 

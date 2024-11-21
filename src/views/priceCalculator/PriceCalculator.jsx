@@ -17,7 +17,7 @@ const PriceCalculator = () => {
         setIsFlipped(false);
     };
 
-
+    const changeCard = () => setIsFlipped(!isFlipped)
 
     const costo = data.costo * (1 + ((data.iva / 100) + (data.iibb / 100)));
 
@@ -30,7 +30,7 @@ const PriceCalculator = () => {
     return (
         <div className={d.home}>
             <div className={d.navContent}>
-                <Nav />
+                <Nav changeCard={changeCard} />
             </div>
 
             <div className={d.body}>

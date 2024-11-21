@@ -16,9 +16,9 @@ const Nav = () => {
                 {/* <h3 className={d.title}></h3> */}
 
                 <ul className={d.links}>
-                    <li>
+                    {/* <li>
                         <a>Info</a>
-                    </li>
+                    </li> */}
 
                     <li>
                         <div className={d.dropdown}>
@@ -27,10 +27,9 @@ const Nav = () => {
                                 <span className="material-icons"> expand_more </span>
                             </a>
                             <div className={d.menu}>
-                                <NavLink to={'/price-cal'}>P - Porcentaje</NavLink>
+                                <NavLink to={'/'}>P - Porcentaje</NavLink>
                                 <NavLink to={'/price-margin'}>P - Margen</NavLink>
-                                <NavLink to={'/butgetA'}> Presupuesto A</NavLink>
-                                <NavLink to={'/butgetB'}> Presupuesto B</NavLink>
+
 
                             </div>
                         </div>

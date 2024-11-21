@@ -7,6 +7,11 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: var(--SecondColor1);
 
+}
+.navContent{
+    width: 100%;
+    height: 50px;
+    /* background-color: red; */
 }    
 
 .body{

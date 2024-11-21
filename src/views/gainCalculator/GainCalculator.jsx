@@ -1,5 +1,6 @@
 import d from './GainCalculator.module.css';
 import { useState } from 'react';
+import Nav from '../nav/Nav';
 
 const GainCalculator = () => {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -26,6 +27,9 @@ const GainCalculator = () => {
 
     return (
         <div className={d.home}>
+            <div className={d.navContent}>
+                <Nav />
+            </div>
             <div className={d.body}>
                 <div className={d.card}>
                     <div className={`${d.front} ${isFlipped ? d.flip : ''}`}>
@@ -58,7 +62,7 @@ const GainCalculator = () => {
                                 { label: 'Descuento', value: discount.toFixed(2) },
                                 { label: 'Margen de Ganancia', value: margin.toFixed(2) + '%' },
                                 { label: 'Off aplicado', value: `${data.off || 0}%` },
-                                { label: 'Ganancia neta', value: `${(priceOff-costoTotal).toFixed(2)}` },
+                                { label: 'Ganancia neta', value: `${(priceOff - costoTotal).toFixed(2)}` },
                             ].map((item, index) => (
                                 <div key={index} className={d.inputs}>
                                     <label htmlFor={item.label}>{item.label}:</label>

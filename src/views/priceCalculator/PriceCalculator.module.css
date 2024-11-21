@@ -8,7 +8,11 @@
     color: var(--SecondColor1);
 
 }    
-
+.navContent{
+    width: 100%;
+    height: 50px;
+    /* background-color: red; */
+}
 .body{
     width: 100%;
     height: 100%;

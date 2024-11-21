@@ -1,5 +1,6 @@
 import d from './PriceCalculator.module.css';
 import { useState } from 'react';
+import Nav from '../nav/Nav';
 
 const PriceCalculator = () => {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -16,14 +17,21 @@ const PriceCalculator = () => {
         setIsFlipped(false);
     };
 
+
+
     const costo = data.costo * (1 + ((data.iva / 100) + (data.iibb / 100)));
-    const price = costo + (data.costo * ((data.otros + data.ganancia) / 100));
+
+    const price = costo * (1 + ((data.otros + data.ganancia) / 100));
+
     const priceOff = price * (1 - (data.off / 100));
     const discount = price - priceOff;
-    const margin = ((priceOff - costo) / costo) * 100;
+    const margin = ((price - costo) / costo) * 100 || 0;
 
     return (
         <div className={d.home}>
+            <div className={d.navContent}>
+                <Nav />
+            </div>
 
             <div className={d.body}>
                 <div className={d.card}>
@@ -56,7 +64,8 @@ const PriceCalculator = () => {
                                 { label: 'Price Off', value: priceOff.toFixed(2) },
                                 { label: 'Discount', value: discount.toFixed(2) },
                                 { label: 'Off applied', value: `${data.off || 0}%` },
-                                { label: 'Ganancia neta', value: `${(priceOff-costo).toFixed(2)}` },
+                                { label: 'Margen de Ganancia', value: margin.toFixed(2) + '%' },
+                                { label: 'Ganancia neta', value: `${(priceOff - costo).toFixed(2)}` },
                             ].map((item, index) => (
                                 <div key={index} className={d.inputs}>
                                     <label htmlFor={item.label}>{item.label}:</label>

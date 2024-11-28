@@ -11,7 +11,6 @@
 .navContent{
     width: 100%;
     height: 50px;
-    /* background-color: red; */
 }    
 
 .body{
@@ -21,144 +20,81 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /* margin-top: 10px;     */
-    /* background-color: red; */
+    margin-top: 10px;    
 
    
 }
 
-.card{   
-    width: 40%;
-    height: 80%;
-    transition: transform 0.6s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    perspective: 1000px;
-    margin-top: 20px;
-}
 
 
-
-
-.front, .back { 
-    overflow: hidden;
-    height: 80%;
-    width: 80%;
-    backface-visibility: hidden;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    position: absolute;
-    display: flex;
-    flex-direction: column;    
-    align-items: center;
-    border: 1px solid white;
-    border-radius: 2rem;
-    padding: 2rem;
-    box-shadow: 4px 12px 40px 6px rgba(155, 152, 152, 0.09);
-    /* box-shadow: 0px 0px 10px rgb(232, 195, 195); */
-    background-color: var(--PrimaryColor1);
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.636);
-   
-
-}
-
-.flip {
-    transform: rotateY(180deg); /* Girar al otro lado */
-}
-
-.right .card.flip {
-    transform: rotateY(0deg); /* Corregir la rotación para mostrar el contenido frontal */
-}
-
-.change{
-    position: absolute;
-    padding: 0.6em 1.2em;
-    color: rgb(249, 246, 246);
-    bottom: 0;
-    right: 0;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #ff5900;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    font-weight: bold;
-}
-
-.change:hover{
-    border-color: #646cff;
-}
-
-.change2{
-    position: absolute;
-    padding: 0.6em 1.2em;
-    color: white;
-    bottom: 0;
-    left: 0;    
-    border-radius: 8px;
-    border: 1px solid transparent;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-}
-
-.change2:hover{
-    border-color: #fbfbfb;
-    border-radius: 5px;
-}
-
-/* hasta aca todo lo relaciona do al flipped */
-
-/* estilos  */
-.insideFront{
+.card {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    /* background-color: aliceblue; */
-}
-.inputs{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-     border-bottom: 1px solid rgb(88, 87, 87);
-    width: 80%;
-
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    width: 90%;
+    /* max-width: 600px; */
+    background: #f9f9f9;
     
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.inputs label{
+
+.form {
     display: flex;
-    justify-content: start;
-    align-items: center;
-    width: 60%;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
 }
-   
 
-.inputs input{
+.form input {
+    flex: 1;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    outline: none;
-    width: 30%;   
+}
+
+.form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.items {
+    margin-top: 20px;
+    /* background-color: red; */
+    width: 70%;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.total {
+    margin-top: 20px;
     text-align: center;
-   
 }
 
-.inputs span {
-    padding: 10px;
+.total button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
     border-radius: 5px;
-    outline: none;
-    width: 50%;
+    cursor: pointer;
 }
+
+
 
 
 @media (max-width:600px){

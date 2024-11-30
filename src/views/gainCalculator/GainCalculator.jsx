@@ -94,45 +94,62 @@ const GainCalculator = () => {
     return (
         <div className={d.home}>
             <div className={d.navContent}>
-                <Nav />
+                {/* <Nav /> */}
             </div>
             <div className={d.body}>
                 <div className={d.card}>
                     <h2>Calculadora de Presupuesto</h2>
                     <div className={d.form}>
-                        <label htmlFor="">Producto:</label>
-                        <input
-                            type="text"
-                            placeholder="Producto"
-                            value={newItem.name}
-                            onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
-                        />
-                        <label htmlFor="">Precio:</label>
-                        <input
-                            type="number"
-                            placeholder="Precio"
-                            value={newItem.price}
-                            onChange={(e) => setNewItem({ ...newItem, price: parseFloat(e.target.value) || 0 })}
-                        />
-                        <label htmlFor="">Cantidad:</label>
-                        <input
-                            type="number"
-                            placeholder="Cantidad"
-                            value={newItem.quantity}
-                            onChange={(e) => setNewItem({ ...newItem, quantity: parseInt(e.target.value) || 1 })}
-                        />
-                        <label htmlFor="">IVA:</label>
-                        <input
-                            type="number"
-                            placeholder="IVA (%)"
-                            value={newItem.tax}
-                            onChange={(e) => setNewItem({ ...newItem, tax: parseFloat(e.target.value) || 0 })}
-                        />
+
+                        <div className={d.inputContainer}>
+                            <label htmlFor="">Producto:</label>
+                            <input
+                                type="text"
+                                placeholder="Producto"
+                                value={newItem.name}
+                                onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
+                            />
+                        </div>
+
+                        <div className={d.inputContainer}>
+                            <label htmlFor="">Cantidad:</label>
+                            <input
+                                type="number"
+                                placeholder="Cantidad"
+                                value={newItem.quantity}
+                                pattern="[0-9]*"
+                                inputMode="numeric"
+                                onChange={(e) => setNewItem({ ...newItem, quantity: parseInt(e.target.value) })}
+                            />
+                        </div>
+                        <div className={d.inputContainer}>
+                            <label htmlFor="">Precio:</label>
+                            <input
+                                type="number"
+                                placeholder="Precio"
+                                value={newItem.price}
+                                pattern="[0-9]*"
+                                inputMode="numeric"
+                                onChange={(e) => setNewItem({ ...newItem, price: parseFloat(e.target.value) })}
+                            />
+                        </div>
+                        <div className={d.inputContainer}>
+
+                            <label htmlFor="">IVA:</label>
+                            <input
+                                type="number"
+                                placeholder="IVA (%)"
+                                value={newItem.tax}
+                                pattern="[0-9]*"
+                                inputMode="numeric"
+                                onChange={(e) => setNewItem({ ...newItem, tax: parseFloat(e.target.value) })}
+                            />
+                        </div>
                         <button onClick={addItem}>Agregar</button>
                     </div>
 
+                    <h3>Productos</h3>
                     <div className={d.items}>
-                        <h3>Productos</h3>
                         <ul>
                             {items.map((item) => (
                                 <li key={item.id} className={d.item}>

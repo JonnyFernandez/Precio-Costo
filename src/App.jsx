@@ -1,20 +1,15 @@
-import { Routes, Route } from "react-router-dom"
-import { PriceCalculator, Nav, Butget, GainCalculator } from "./views"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { PriceCalculator, GainCalculator } from "./views";
 
 function App() {
-
   return (
-    <>
-      {/* <Nav /> */}
+    <Router>
       <Routes>
-
         <Route path="/" element={<PriceCalculator />} />
         <Route path="/presupuestoB" element={<GainCalculator />} />
-        {/* <Route path="/butgetA" element={<h1>Presupuesto A</h1>} />
-        <Route path="/butgetB" element={<h1>Presupuesto B</h1>} /> */}
       </Routes>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;

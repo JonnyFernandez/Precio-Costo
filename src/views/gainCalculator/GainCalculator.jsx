@@ -1,6 +1,5 @@
 import d from './GainCalculator.module.css';
 import { useState } from 'react';
-import Nav from '../nav/Nav';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -41,8 +40,13 @@ const GainCalculator = () => {
         const companyName = "Distribuidora Marelys";
         const cuit = "CUIT: 20-12345678-9";
         const businessName = "Razón Social: Distribuidora Marelys S.A.";
-        const address = "Dirección: Calle Falsa 123, Buenos Aires, Argentina";
-        const phone = "Teléfono: +54 11 1234-5678";
+        const address = "Dirección: Calle 44 5215, Buenos Aires, Argentina";
+        const phone = "Teléfono: 221 504-7727";
+
+        // Obtener fecha y hora actuales
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString(); // Fecha en formato local
+        const formattedTime = currentDate.toLocaleTimeString(); // Hora en formato local
 
         // Encabezado
         doc.setFontSize(18);
@@ -53,19 +57,23 @@ const GainCalculator = () => {
         doc.text(address, 14, 35);
         doc.text(phone, 14, 40);
 
+        // Fecha y hora
+        doc.text(`Fecha: ${formattedDate}`, 14, 50);
+        doc.text(`Hora: ${formattedTime}`, 14, 55);
+
         // Nota aclaratoria
         doc.setFontSize(14);
         doc.setTextColor(255, 0, 0); // Rojo para destacar el mensaje
-        doc.text('NOTA DE ENTREGA - SIN VALIDEZ FISCAL', 105, 50, { align: "center" });
+        doc.text('NOTA DE ENTREGA - SIN VALIDEZ FISCAL', 105, 65, { align: "center" });
 
         // Título del presupuesto
         doc.setFontSize(16);
         doc.setTextColor(0, 0, 0); // Volver al color negro
-        doc.text('Presupuesto', 14, 60);
+        doc.text('Presupuesto', 14, 75);
 
         // Tabla de productos
         doc.autoTable({
-            startY: 65, // Posición de inicio de la tabla
+            startY: 80, // Posición de inicio de la tabla
             head: [['Producto', 'Cantidad', 'Precio Unitario', 'IVA (%)', 'Total']],
             body: items.map((item) => [
                 item.name,
@@ -94,7 +102,7 @@ const GainCalculator = () => {
     return (
         <div className={d.home}>
             <div className={d.navContent}>
-                {/* <Nav /> */}
+                {/* <Nav changeCard={changeCard} /> */}
             </div>
             <div className={d.body}>
                 <div className={d.card}>

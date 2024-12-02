@@ -30,7 +30,7 @@ const PriceCalculator = () => {
     return (
         <div className={d.home}>
             <div className={d.navContent}>
-                <Nav changeCard={changeCard} />
+                {/* <Nav changeCard={changeCard} /> */}
             </div>
 
             <div className={d.body}>

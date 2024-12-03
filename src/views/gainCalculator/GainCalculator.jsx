@@ -33,70 +33,73 @@ const GainCalculator = () => {
     };
 
     // Exportar el presupuesto a PDF
-    const exportToPDF = () => {
-        const doc = new jsPDF();
+    // Exportar el presupuesto a PDF
+const exportToPDF = () => {
+    const doc = new jsPDF();
 
-        // Información de la empresa
-        const companyName = "Distribuidora Marelys";
-        const cuit = "CUIT: 20-12345678-9";
-        const businessName = "Razón Social: Distribuidora Marelys S.A.";
-        const address = "Dirección: Calle 44 5215, Buenos Aires, Argentina";
-        const phone = "Teléfono: 221 504-7727";
+    // Información de la empresa
+    const companyName = "Distribuidora Marelys";
+    const cuit = "CUIT: 20-12345678-9";
+    const businessName = "Razón Social: Distribuidora Marelys S.A.";
+    const address = "Dirección: Calle 44 5215, Buenos Aires, Argentina";
+    const phone = "Teléfono: 221 504-7727";
 
-        // Obtener fecha y hora actuales
-        const currentDate = new Date();
-        const formattedDate = currentDate.toLocaleDateString(); // Fecha en formato local
-        const formattedTime = currentDate.toLocaleTimeString(); // Hora en formato local
+    // Obtener fecha y hora actuales
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString(); // Fecha en formato local
+    const formattedTime = currentDate.toLocaleTimeString(); // Hora en formato local
 
-        // Encabezado
-        doc.setFontSize(18);
-        doc.text(companyName, 105, 15, { align: "center" }); // Título centrado
-        doc.setFontSize(12);
-        doc.text(cuit, 14, 25);
-        doc.text(businessName, 14, 30);
-        doc.text(address, 14, 35);
-        doc.text(phone, 14, 40);
+    // Encabezado
+    doc.setFontSize(18);
+    doc.text(companyName, 105, 15, { align: "center" }); // Título centrado
+    doc.setFontSize(12);
+    doc.text(cuit, 14, 25);
+    doc.text(businessName, 14, 30);
+    doc.text(address, 14, 35);
+    doc.text(phone, 14, 40);
 
-        // Fecha y hora
-        doc.text(`Fecha: ${formattedDate}`, 14, 50);
-        doc.text(`Hora: ${formattedTime}`, 14, 55);
+    // Fecha y hora
+    doc.text(`Fecha: ${formattedDate}`, 14, 50);
+    doc.text(`Hora: ${formattedTime}`, 14, 55);
 
-        // Nota aclaratoria
-        doc.setFontSize(14);
-        doc.setTextColor(255, 0, 0); // Rojo para destacar el mensaje
-        doc.text('NOTA DE ENTREGA - SIN VALIDEZ FISCAL', 105, 65, { align: "center" });
+    // Nota aclaratoria
+    doc.setFontSize(14);
+    doc.setTextColor(255, 0, 0); // Rojo para destacar el mensaje
+    doc.text('NOTA DE ENTREGA - SIN VALIDEZ FISCAL', 105, 65, { align: "center" });
 
-        // Título del presupuesto
-        doc.setFontSize(16);
-        doc.setTextColor(0, 0, 0); // Volver al color negro
-        doc.text('Presupuesto', 14, 75);
+    // Título del presupuesto
+    doc.setFontSize(16);
+    doc.setTextColor(0, 0, 0); // Volver al color negro
+    doc.text('Presupuesto', 14, 75);
 
-        // Tabla de productos
-        doc.autoTable({
-            startY: 80, // Posición de inicio de la tabla
-            head: [['Producto', 'Cantidad', 'Precio Unitario', 'IVA (%)', 'Total']],
-            body: items.map((item) => [
-                item.name,
-                item.quantity,
-                `$${item.price.toFixed(2)}`,
-                `${item.tax}%`,
-                `$${calculateItemTotal(item.price, item.quantity, item.tax).toFixed(2)}`,
-            ]),
-        });
+    // Tabla de productos
+    doc.autoTable({
+        startY: 80, // Posición de inicio de la tabla
+        head: [['Producto', 'Cantidad', 'Precio Unitario', 'IVA (%)', 'Total']],
+        body: items.map((item) => [
+            item.name,
+            item.quantity,
+            `$${item.price.toFixed(2)}`,
+            `${item.tax}%`,
+            `$${calculateItemTotal(item.price, item.quantity, item.tax).toFixed(2)}`,
+        ]),
+    });
 
-        // Total general
-        const finalY = doc.lastAutoTable.finalY; // Última posición de la tabla
-        doc.setFontSize(14);
-        doc.text(`Total: $${calculateTotal().toFixed(2)}`, 14, finalY + 10);
+    // Total general (con comas en el total)
+    const finalY = doc.lastAutoTable.finalY; // Última posición de la tabla
+    const totalFormatted = calculateTotal().toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); // Formatear el total con comas
+    doc.setFontSize(14);
+    doc.text(`Total: $${totalFormatted}`, 14, finalY + 10);
 
-        // Pie de página
-        doc.setFontSize(10);
-        doc.setTextColor(100); // Gris para el texto adicional
-        doc.text('Esta nota de entrega no reemplaza una factura oficial. Para cualquier duda, contáctenos.', 105, 285, { align: "center" });
+    // Pie de página
+    doc.setFontSize(10);
+    doc.setTextColor(100); // Gris para el texto adicional
+    doc.text('Esta nota de entrega no reemplaza una factura oficial. Para cualquier duda, contáctenos.', 105, 285, { align: "center" });
 
-        // Guardar el PDF
-        doc.save('nota_de_entrega.pdf');
-    };
+    // Guardar el PDF
+    doc.save('nota_de_entrega.pdf');
+};
+
 
 
     return (

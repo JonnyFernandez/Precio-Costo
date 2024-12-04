@@ -32,14 +32,20 @@ const GainCalculator = () => {
         );
     };
 
+    function generateCode() {
+        const letter = "R";
+        const numbers = Math.floor(Math.random() * 10000).toString().padStart(4, "0");
+        return letter + numbers;
+    }
+
     // Exportar el presupuesto a PDF
     const exportToPDF = () => {
         const doc = new jsPDF();
 
         // Información de la empresa
         const companyName = "Distribuidora Marelys";
-        const cuit = "CUIT: 20-12345678-9";
-        const businessName = "Razón Social: Distribuidora Marelys S.A.";
+        const cuit = "CUIT: 20-94101864-6";
+        const businessName = "Razón Social: Distribuidora Marelys";
         const address = "Dirección: Calle 44 5215, Buenos Aires, Argentina";
         const phone = "Teléfono: 221 504-7727";
 
@@ -50,21 +56,18 @@ const GainCalculator = () => {
 
         // Encabezado
         doc.setFontSize(18);
-        doc.text(companyName, 105, 15, { align: "center" }); // Título centrado
+        doc.text(companyName, 14, 15); // Nombre de la empresa a la izquierda
         doc.setFontSize(12);
         doc.text(cuit, 14, 25);
         doc.text(businessName, 14, 30);
         doc.text(address, 14, 35);
         doc.text(phone, 14, 40);
 
-        // Fecha y hora
-        doc.text(`Fecha: ${formattedDate}`, 14, 50);
-        doc.text(`Hora: ${formattedTime}`, 14, 55);
-
-        // Nota aclaratoria
-        doc.setFontSize(14);
-        doc.setTextColor(255, 0, 0); // Rojo para destacar el mensaje
-        doc.text('NOTA DE ENTREGA - SIN VALIDEZ FISCAL', 105, 65, { align: "center" });
+        // Fecha y hora alineadas a la derecha
+        doc.setFontSize(10);
+        const pageWidth = doc.internal.pageSize.width; // Ancho de la página
+        doc.text(`Fecha: ${formattedDate}`, pageWidth - 50, 15, { align: "right" });
+        // doc.text(`Hora: ${formattedTime}`, pageWidth - 50, 20, { align: "right" });
 
         // Título del presupuesto
         doc.setFontSize(16);
@@ -84,25 +87,39 @@ const GainCalculator = () => {
             ]),
         });
 
+        // Calcular suma del IVA
+        const totalIVA = items.reduce((acc, item) => {
+            const subtotal = item.price * item.quantity;
+            return acc + (subtotal * item.tax) / 100;
+        }, 0);
+
         // Total general
-        const finalY = doc.lastAutoTable.finalY; // Última posición de la tabla
+        const formattedTotal = calculateTotal()
+            .toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); // Formato con separadores de miles
+        const formattedIVA = totalIVA
+            .toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); // Formato con separadores de miles
+
+        // Posición del pie
+        const pageHeight = doc.internal.pageSize.height; // Altura de la página
         doc.setFontSize(14);
-        doc.text(`Total: $${calculateTotal().toFixed(2)}`, 14, finalY + 10);
+        doc.text(`IVA Total: $${formattedIVA}`, pageWidth - 14, pageHeight - 30, { align: "right" });
+        doc.text(`Monto Total: $${formattedTotal}`, pageWidth - 14, pageHeight - 20, { align: "right" });
 
         // Pie de página
         doc.setFontSize(10);
         doc.setTextColor(100); // Gris para el texto adicional
-        doc.text('Esta nota de entrega no reemplaza una factura oficial. Para cualquier duda, contáctenos.', 105, 285, { align: "center" });
+        doc.text('Esta nota de entrega no reemplaza una factura oficial. NOTA DE ENTREGA - SIN VALIDEZ FISCAL.', 105, pageHeight - 10, { align: "center" });
 
         // Guardar el PDF
-        doc.save('nota_de_entrega.pdf');
+        doc.save(`Presupuesto-${generateCode()}`);
     };
+
 
 
     return (
         <div className={d.home}>
             <div className={d.navContent}>
-                {/* <Nav changeCard={changeCard} /> */}
+
             </div>
             <div className={d.body}>
                 <div className={d.card}>
@@ -153,7 +170,8 @@ const GainCalculator = () => {
                                 onChange={(e) => setNewItem({ ...newItem, tax: parseFloat(e.target.value) })}
                             />
                         </div>
-                        <button onClick={addItem}>Agregar</button>
+                        {items.length < 21 ? <button onClick={addItem}>Agregar: {items.length}</button> : <p>{items.length}: limite alcanzado</p>}
+
                     </div>
 
                     <h3>Productos</h3>
@@ -172,6 +190,7 @@ const GainCalculator = () => {
                     <div className={d.total}>
                         <h3>Total: ${calculateTotal().toFixed(2)}</h3>
                         <button onClick={exportToPDF}>Exportar a PDF</button>
+
                     </div>
                 </div>
             </div>
